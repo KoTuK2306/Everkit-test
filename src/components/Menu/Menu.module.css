@@ -1,0 +1,25 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--transparent);
+}
+
+img {
+  margin-top: 64px;
+  margin-bottom: 72px;
+  width: 200px;
+  height: 60px;
+}
+
+.active {
+  background-color: var(--white);
+}
+
+.active > span {
+  color: var(--black);
+}
+
+.active > div {
+  color: var(--purple);
+}
