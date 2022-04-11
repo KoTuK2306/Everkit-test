@@ -1,0 +1,25 @@
+.searchBlock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  border-top-left-radius: 32px;
+  background-color: var(--grey);
+  font-family: Montserrat;
+  color: var(--black);
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 64px;
+  margin-left: 104px;
+}
+
+.text {
+  width: 100%;
+  margin-top: 140px;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}

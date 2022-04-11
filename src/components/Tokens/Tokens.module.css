@@ -1,0 +1,31 @@
+:root {
+  --tokenMargin: 56px;
+  --tokensContentWidth: calc(100% - (var(--tokenMargin) * 2));
+}
+
+.titleSection {
+  width: var(--tokensContentWidth);
+  margin-top: 42px;
+  margin-bottom: 42px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: Montserrat;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 42px;
+}
+
+.tokens {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-top-left-radius: 32px;
+  background-color: var(--grey);
+}

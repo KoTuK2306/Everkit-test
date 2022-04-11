@@ -1,0 +1,168 @@
+.tokenBlock {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+  width: var(--tokensContentWidth);
+  min-height: 92px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background-color: var(--white);
+  font-family: Montserrat;
+  transition: 0.2s all;
+  cursor: pointer;
+  border: 2px solid var(--transparent);
+}
+
+.tokenBlock:hover {
+  border: 2px solid var(--purple);
+}
+
+.token {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 40px 48px repeat(5, 1fr);
+  grid-template-rows: 92px;
+  grid-auto-flow: column;
+}
+
+.id {
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--grey2);
+}
+
+.logo {
+  padding: 0;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.nameBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.name {
+  margin: 0;
+  padding: 0;
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.symbol {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--purple);
+}
+
+.priceBlock {
+  margin: 0;
+  padding: 0;
+  width: 224px;
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  padding: 0;
+  margin: 0 0 2px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--purple);
+}
+
+.priceChanges {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--grey2);
+}
+
+.priceChanges > p {
+  margin: 0 6px 0 6px;
+}
+
+.priceChanges > p:first-child {
+  margin-left: 0;
+}
+
+.priceChanges > p:last-child {
+  margin-right: 0;
+}
+
+.red {
+  color: var(--red);
+}
+
+.green {
+  color: var(--green);
+}
+
+.volumeBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.volume {
+  margin-right: 16px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--black);
+}
+
+.percent {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--purple);
+}
+
+.accountsBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.usersIco {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: var(--purple);
+}
+
+.descriptionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--purple);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.openedDescriptionButton {
+  transform: rotate(-180deg);
+}
+
+.description {
+  display: flex;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.open {
+  max-height: 200px;
+  padding-bottom: 24px;
+  padding-top: 16px;
+}

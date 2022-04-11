@@ -1,0 +1,7 @@
+.app {
+  display: grid;
+  grid-template-columns: 320px auto;
+  grid-auto-flow: column;
+  grid-template-rows: 100%;
+  background: var(--primaryGradient);
+}
