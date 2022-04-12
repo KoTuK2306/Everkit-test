@@ -18,9 +18,8 @@
   color: var(--grey2);
   width: 64px;
   height: 32px;
-  font-family: Montserrat;
   font-size: 14px;
-  background: var(--transparent);
+  background: rgba(0, 0, 0, 0);
   border-radius: 16px;
   border: none;
   outline: none;
@@ -30,10 +29,10 @@
 
 .filtButton:hover {
   color: var(--white);
-  background: linear-gradient(201.66deg, #b380fd 12.94%, #6347f5 78.23%);
+  background: linear-gradient(201.66deg, var(--purple2) 12.94%, var(--purple) 78.23%);
 }
 
 .active {
   color: var(--white);
-  background: linear-gradient(201.66deg, #b380fd 12.94%, #6347f5 78.23%);
+  background: linear-gradient(201.66deg, var(--purple2) 12.94%, var(--purple) 78.23%);
 }

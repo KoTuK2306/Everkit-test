@@ -10,7 +10,7 @@
   background: none;
   cursor: pointer;
   transition: 0.1s all;
-  border: 2px solid var(--transparent);
+  border: 2px solid rgba(0, 0, 0, 0);
 }
 
 .icon {
@@ -24,8 +24,6 @@
 
 .text {
   color: var(--white);
-  font-family: Montserrat;
-  font-weight: 500;
   font-size: 18px;
 }
 

@@ -1,9 +1,8 @@
 .menu {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--transparent);
+  background: rgba(0, 0, 0, 0);
 }
 
 .menuContent {
@@ -11,7 +10,7 @@
   position: fixed;
 }
 
-img {
+.logo {
   margin-top: 64px;
   margin-bottom: 72px;
   width: 200px;
