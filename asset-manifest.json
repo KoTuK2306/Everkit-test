@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Everkit-test/static/css/main.97a86161.css",
-    "main.js": "/Everkit-test/static/js/main.847969a8.js",
-    "static/js/787.8f81b03e.chunk.js": "/Everkit-test/static/js/787.8f81b03e.chunk.js",
-    "static/media/Montserrat.ttf": "/Everkit-test/static/media/Montserrat.3068cdb43142f5625baf.ttf",
-    "index.html": "/Everkit-test/index.html",
-    "main.97a86161.css.map": "/Everkit-test/static/css/main.97a86161.css.map",
-    "main.847969a8.js.map": "/Everkit-test/static/js/main.847969a8.js.map",
-    "787.8f81b03e.chunk.js.map": "/Everkit-test/static/js/787.8f81b03e.chunk.js.map"
+    "main.css": "/tokens/static/css/main.20497694.css",
+    "main.js": "/tokens/static/js/main.ee106a83.js",
+    "static/js/787.8f81b03e.chunk.js": "/tokens/static/js/787.8f81b03e.chunk.js",
+    "static/media/Montserrat.ttf": "/tokens/static/media/Montserrat.3068cdb43142f5625baf.ttf",
+    "index.html": "/tokens/index.html",
+    "main.20497694.css.map": "/tokens/static/css/main.20497694.css.map",
+    "main.ee106a83.js.map": "/tokens/static/js/main.ee106a83.js.map",
+    "787.8f81b03e.chunk.js.map": "/tokens/static/js/787.8f81b03e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.97a86161.css",
-    "static/js/main.847969a8.js"
+    "static/css/main.20497694.css",
+    "static/js/main.ee106a83.js"
   ]
 }
