@@ -16,23 +16,25 @@ export const Menu: FC = () => {
 
   return (
     <div className={classes.menu}>
-      <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="logo" />
-      <Link onClick={() => setCurrPage('tokens')} to="/">
-        <MenuButton
-          className={currentPage === 'tokens' ? classes.active : undefined}
-          key={tokensButton.id}
-          text={tokensButton.title}
-          icon={tokensButton.icon}
-        />
-      </Link>
-      <Link onClick={() => setCurrPage('search')} to="search">
-        <MenuButton
-          className={currentPage === 'search' ? classes.active : undefined}
-          key={searchButton.id}
-          text={searchButton.title}
-          icon={searchButton.icon}
-        />
-      </Link>
+      <div className={classes.menuContent}>
+        <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="logo" />
+        <Link onClick={() => setCurrPage('tokens')} to="/">
+          <MenuButton
+            className={currentPage === 'tokens' ? classes.active : undefined}
+            key={tokensButton.id}
+            text={tokensButton.title}
+            icon={tokensButton.icon}
+          />
+        </Link>
+        <Link onClick={() => setCurrPage('search')} to="search">
+          <MenuButton
+            className={currentPage === 'search' ? classes.active : undefined}
+            key={searchButton.id}
+            text={searchButton.title}
+            icon={searchButton.icon}
+          />
+        </Link>
+      </div>
     </div>
   )
 }
