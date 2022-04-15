@@ -1,16 +1,15 @@
-.searchBlock {
+.plugWrapper {
   display: flex;
   flex-direction: column;
-  border-top-left-radius: 32px;
-  background-color: var(--grey);
+  background: var(--grey);
   color: var(--black);
 }
 
 .title {
+  margin-top: 78px;
+  margin-left: 42px;
   font-size: 36px;
   font-weight: 700;
-  margin-top: 64px;
-  margin-left: 104px;
 }
 
 .text {

@@ -1,34 +1,30 @@
-import { FC, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { FC } from 'react'
+import { NavLink } from 'react-router-dom'
 import { MenuButton } from './MenuButton'
 import { menu } from '../../menu'
+import { logo } from '../../logo'
 import { RouterPaths } from '../../enums/RouterPaths'
 import classes from './Menu.module.css'
 
 export const Menu: FC = () => {
-  const [currentPage, setCurrentPage] = useState('tokens')
-
   return (
     <div className={classes.menu}>
       <div className={classes.menuContent}>
-        <img
-          className={classes.logo}
-          src={`${process.env.PUBLIC_URL}/images/logo.png`}
-          alt="logo"
-        />
-        {menu.map(({ id, title, icon }) => (
-          <Link
-            onClick={() => setCurrentPage(id)}
-            to={id === RouterPaths.TOKENS ? '' : RouterPaths.SEARCH}
-          >
-            <MenuButton
-              className={currentPage === id ? classes.active : ''}
-              key={id}
-              text={title}
-              icon={icon}
-            />
-          </Link>
-        ))}
+        <div className={classes.logoWrapper}>
+          <div className={classes.logo}>{logo.Icon}</div>
+          {menu.map(({ id, title, icon }) => (
+            <NavLink key={id} to={id === RouterPaths.TOKENS ? '' : RouterPaths.SEARCH}>
+              {({ isActive }) => (
+                <MenuButton
+                  className={isActive ? 'active' : ''}
+                  text={title}
+                  icon={icon}
+                />
+              )}
+            </NavLink>
+          ))}
+        </div>
+        <p className={classes.language}>Русский</p>
       </div>
     </div>
   )

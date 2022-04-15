@@ -30,3 +30,15 @@
 .tokenButton:hover {
   border: 2px solid var(--white);
 }
+
+.active {
+  background-color: var(--white);
+}
+
+.active > .text {
+  color: var(--black);
+}
+
+.active > .icon {
+  color: var(--purple);
+}

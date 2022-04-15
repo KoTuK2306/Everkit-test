@@ -9,15 +9,15 @@ interface FiltrationProps {
 
 export const Filtration: FC<FiltrationProps> = ({ category, setCategory }) => {
   const makeClass = (currentFiltering: string) => {
-    return category === currentFiltering
-      ? `${classes.filtButton} ${classes.active}`
-      : classes.filtButton
+    return `${classes.filteringButton} ${
+      category === currentFiltering ? classes.active : ''
+    }`
   }
 
   return (
-    <div className={classes.filtrationBlock}>
+    <div className={classes.filtration}>
       {categories.map(({ id, title }) => (
-        <button onClick={() => setCategory(id)} className={makeClass(id)}>
+        <button key={id} onClick={() => setCategory(id)} className={makeClass(id)}>
           {title}
         </button>
       ))}

@@ -1,12 +1,12 @@
-import { useState, FC } from 'react'
+import { useState, FC, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { tokenIcons } from '../../../tokenIcons'
-import { Token as TokenInterface } from '../../../interfaces/Token'
+import { Token as TokenProps } from '../../../interfaces/Token'
+import { TokenContext } from '../../../App'
 import classes from './Token.module.css'
 
 const userIcon = tokenIcons[0].icon
 const chevron = tokenIcons[1].icon
-
-type TokenProps = Omit<TokenInterface, 'address' | 'categories'>
 
 const getClassOfColor = (number: number) => {
   if (number < 0) {
@@ -17,70 +17,66 @@ const getClassOfColor = (number: number) => {
   }
 }
 
-const makeNumber = (number: number) => {
+const addSymbol = (number: number) => {
   if (number > 0) {
     return `+${number}%`
   }
   return `${number}%`
 }
 
-export const Token: FC<TokenProps> = ({
-  name,
-  id,
-  logoURI,
-  symbol,
-  description,
-  price,
-  priceChange,
-  volume,
-  volumeChangePercentage,
-  tvl,
-  tvlChangePercentage,
-  users,
-}) => {
+export const Token: FC<TokenProps> = ({ token }) => {
   const [isOpen, setIsOpen] = useState(false)
-
-  const toggleDescription = () => {
-    isOpen ? setIsOpen(false) : setIsOpen(true)
-  }
+  const { setTokenTitle, setToken } = useContext(TokenContext)
 
   return (
-    <section onClick={toggleDescription} className={classes.tokenBlock}>
-      <div className={classes.token}>
-        <p className={classes.id}>{`#${id}`}</p>
-        <img className={classes.logo} src={logoURI} alt="bitLogo" />
-        <div className={classes.nameBlock}>
-          <p className={classes.name}>{name}</p>
-          <p className={classes.symbol}>{symbol}</p>
-        </div>
-        <div className={classes.priceBlock}>
-          <p className={classes.price}>{`${price} $`}</p>
-          <div className={classes.priceChanges}>
-            {Object.values(priceChange).map((priceChange) => (
-              <p className={`${classes.priceChange} ${getClassOfColor(priceChange)}`}>
-                {makeNumber(priceChange)}
-              </p>
-            ))}
+    <section className={classes.tokenWrapper}>
+      <div className={classes.linkWrapper}>
+        <Link
+          onClick={() => {
+            setTokenTitle(token.name)
+            setToken(String(token.id))
+          }}
+          to={String(token.id)}
+        >
+          <div className={classes.token}>
+            <p className={classes.id}>{`#${token.id}`}</p>
+            <img className={classes.logo} src={token.logoURI} alt={token.name} />
+            <div className={classes.nameWrapper}>
+              <p className={classes.name}>{token.name}</p>
+              <p className={classes.symbol}>{token.symbol}</p>
+            </div>
+            <div className={classes.priceWrapper}>
+              <p className={classes.price}>{`${token.price} $`}</p>
+              <div className={classes.priceChanges}>
+                {Object.values(token.priceChange).map((priceChange, index) => (
+                  <p
+                    key={index}
+                    className={`${classes.priceChange} ${getClassOfColor(priceChange)}`}
+                  >
+                    {addSymbol(priceChange)}
+                  </p>
+                ))}
+              </div>
+            </div>
+            <div className={classes.volumeWrapper}>
+              <p className={classes.volume}>{`${token.volume.toLocaleString('ru')}$`}</p>
+              <p className={classes.percent}>{`${token.volumeChangePercentage}%`}</p>
+            </div>
+            <div className={classes.volumeWrapper}>
+              <p className={classes.volume}>{`${token.tvl.toLocaleString('ru')}$`}</p>
+              <p className={classes.percent}>{`${token.tvlChangePercentage}%`}</p>
+            </div>
+            <div className={classes.accountsWrapper}>
+              <div className={classes.usersIcon}>{userIcon}</div>
+              <p className={classes.usersNum}>{token.users.toLocaleString('ru')}</p>
+            </div>
           </div>
-        </div>
-        <div className={classes.volumeBlock}>
-          <p className={classes.volume}>{`${volume.toLocaleString('ru')}$`}</p>
-          <p className={classes.percent}>{`${volumeChangePercentage}%`}</p>
-        </div>
-        <div className={classes.volumeBlock}>
-          <p className={classes.volume}>{`${tvl.toLocaleString('ru')}$`}</p>
-          <p className={classes.percent}>{`${tvlChangePercentage}%`}</p>
-        </div>
-        <div className={classes.accountsBlock}>
-          <div className={classes.usersIco}>{userIcon}</div>
-          <p className={classes.usersNum}>{users.toLocaleString('ru')}</p>
-        </div>
+        </Link>
         <div
-          className={
-            isOpen
-              ? `${classes.descriptionButton} ${classes.openedDescriptionButton}`
-              : classes.descriptionButton
-          }
+          onClick={() => setIsOpen(!isOpen)}
+          className={`${classes.descriptionButton} ${
+            isOpen ? classes.openedDescriptionButton : ''
+          }`}
         >
           {chevron}
         </div>
@@ -90,7 +86,7 @@ export const Token: FC<TokenProps> = ({
           isOpen ? `${classes.description} ${classes.open}` : classes.description
         }
       >
-        {description}
+        {token.description}
       </div>
     </section>
   )

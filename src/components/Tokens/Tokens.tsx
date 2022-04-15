@@ -2,13 +2,13 @@ import { FC, useState } from 'react'
 import { tokens, categories } from '../../tokens'
 import { Token } from './Token'
 import { Filtration } from './Filtration'
-import classes from './Tokens.module.css'
 import { MainLayout } from '../../layouts/MainLayout'
+import classes from './Tokens.module.css'
 
 export const Tokens: FC = () => {
   const [category, setCategory] = useState(categories[0].id)
-  const filteredTokens = tokens.filter((item) =>
-    category === categories[0].id ? item : item.categories.includes(category),
+  const filteredTokens = tokens.filter((token) =>
+    category === categories[0].id ? token : token.categories.includes(category),
   )
 
   return (
@@ -19,38 +19,9 @@ export const Tokens: FC = () => {
           <Filtration category={category} setCategory={setCategory} />
         </div>
       </section>
-      {filteredTokens.map(
-        ({
-          name,
-          id,
-          logoURI,
-          symbol,
-          description,
-          price,
-          priceChange,
-          volume,
-          volumeChangePercentage,
-          tvl,
-          tvlChangePercentage,
-          users,
-        }) => (
-          <Token
-            key={id}
-            name={name}
-            id={id}
-            logoURI={logoURI}
-            symbol={symbol}
-            description={description}
-            price={price}
-            priceChange={priceChange}
-            volume={volume}
-            volumeChangePercentage={volumeChangePercentage}
-            tvl={tvl}
-            tvlChangePercentage={tvlChangePercentage}
-            users={users}
-          />
-        ),
-      )}
+      {filteredTokens.map((token) => (
+        <Token key={token.id} token={token} />
+      ))}
     </MainLayout>
   )
 }
