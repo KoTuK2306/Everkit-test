@@ -13,7 +13,10 @@ export const Menu: FC = () => {
         <div className={classes.logoWrapper}>
           <div className={classes.logo}>{logo.Icon}</div>
           {menu.map(({ id, title, icon }) => (
-            <NavLink key={id} to={id === RouterPaths.TOKENS ? '' : RouterPaths.SEARCH}>
+            <NavLink
+              key={id}
+              to={id === RouterPaths.TOKENS ? RouterPaths.TOKENS : RouterPaths.SEARCH}
+            >
               {({ isActive }) => (
                 <MenuButton
                   className={isActive ? 'active' : ''}

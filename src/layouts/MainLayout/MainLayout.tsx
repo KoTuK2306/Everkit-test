@@ -6,5 +6,5 @@ interface MainLayoutProps {
 }
 
 export const MainLayout: FC<MainLayoutProps> = ({ children, className }) => {
-  return <div className={`${classes.mainLayout} ${className}`}>{children}</div>
+  return <section className={`${classes.mainLayout} ${className}`}>{children}</section>
 }

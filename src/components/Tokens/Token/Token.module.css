@@ -1,15 +1,12 @@
 :root {
-  --numberOfColumns: 8;
+  --tokenHeigth: 92px;
 }
 
 .tokenWrapper {
-  display: flex;
-  flex-direction: column;
   align-self: stretch;
-  align-items: space-between;
   margin: 0 42px 8px 42px;
   padding: 0 24px;
-  min-height: 92px;
+  min-height: var(--tokenHeigth);
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 8px;
   background-color: var(--white);
@@ -17,9 +14,9 @@
   cursor: pointer;
 }
 
-.linkWrapper {
-  display: flex;
-  flex-direction: row;
+.navlinkWrapper {
+  display: grid;
+  grid-template-columns: auto 64px;
   align-items: center;
 }
 
@@ -30,9 +27,8 @@
 .token {
   display: grid;
   align-items: center;
-  justify-content: stretch;
-  grid-template-columns: 40px 48px repeat(5, calc(100vw / var(--numberOfColumns)));
-  grid-template-rows: 92px;
+  grid-template-columns: 40px 48px repeat(4, 2fr) 1fr;
+  grid-template-rows: var(--tokenHeigth);
 }
 
 .id {
@@ -154,9 +150,11 @@
 }
 
 .descriptionButton {
+  transform: rotate(-180deg);
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: flex-end;
   width: 32px;
   height: 32px;
   color: var(--purple);
@@ -165,7 +163,7 @@
 }
 
 .openedDescriptionButton {
-  transform: rotate(-180deg);
+  transform: rotate(0deg);
 }
 
 .description {
