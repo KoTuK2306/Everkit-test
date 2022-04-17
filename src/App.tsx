@@ -1,25 +1,23 @@
-import React, { useState } from 'react'
-import { tokens, categories } from './tokens'
-import { menu } from './menu'
-import './App.css'
+import { FC } from 'react'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Menu } from './components/Menu'
+import { Tokens } from './components/Tokens'
+import { RouterPaths } from './enums/RouterPaths'
+import { SearchPlug } from './components/SearchPlug'
+import { TokenPlug } from './components/TokenPlug'
+import classes from './App.module.css'
 
-function App() {
-  const [category, setCategory] = useState(categories[0])
-
+export const App: FC = () => {
   return (
-    <div className="app">
-      <div className="menu">
-        {menu.map((item) => (
-          <div className="menu-item">{item.title}</div>
-        ))}
-      </div>
-      <div className="tokens">
-        {tokens.map((item) => (
-          <div className="token">{item.name}</div>
-        ))}
-      </div>
-    </div>
+    <section className={classes.app}>
+      <BrowserRouter>
+        <Menu />
+        <Routes>
+          <Route path={RouterPaths.TOKENS} element={<Tokens />} />
+          <Route path={RouterPaths.SEARCH} element={<SearchPlug />} />
+          <Route path="/token/:tokenId" element={<TokenPlug />} />
+        </Routes>
+      </BrowserRouter>
+    </section>
   )
 }
-
-export default App

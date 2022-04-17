@@ -1,0 +1,29 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0);
+}
+
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  justify-content: space-between;
+}
+
+.language {
+  color: var(--white);
+  font-size: 14px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo {
+  margin: 64px auto 72px auto;
+  width: 200px;
+  height: 60px;
+}
