@@ -56,7 +56,7 @@ export const Token: FC<TokenProps> = ({ token }) => {
             <p className={classes.percent}>{`${token.volumeChangePercentage}%`}</p>
           </div>
 
-          <div className={classes.volumeWrapper}>
+          <div className={classes.tvlWrapper}>
             <p className={classes.volume}>{`${token.tvl.toLocaleString('ru')}$`}</p>
             <p className={classes.percent}>{`${token.tvlChangePercentage}%`}</p>
           </div>

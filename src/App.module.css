@@ -5,3 +5,10 @@
   grid-template-rows: 100%;
   background: var(--primaryGradient);
 }
+
+@media screen and (max-width: 1200px) {
+  .app {
+    grid-template-columns: auto;
+    grid-template-rows: 90px auto;
+  }
+}

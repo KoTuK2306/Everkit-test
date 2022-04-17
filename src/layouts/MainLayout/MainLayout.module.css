@@ -3,3 +3,9 @@
   min-height: 100vh;
   border-top-left-radius: 32px;
 }
+
+@media screen and (max-width: 1200px) {
+  .mainLayout {
+    border-top-left-radius: 0;
+  }
+}

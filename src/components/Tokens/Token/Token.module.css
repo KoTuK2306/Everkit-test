@@ -121,6 +121,12 @@
   align-items: center;
 }
 
+.tvlWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .volume {
   margin-right: 16px;
   font-size: 18px;
@@ -178,4 +184,47 @@
   max-height: 200px;
   padding-bottom: 24px;
   padding-top: 16px;
+}
+
+@media screen and (max-width: 1000px) {
+  .id {
+    grid-area: id;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+  .nameWrapper {
+    grid-area: name;
+  }
+
+  .priceWrapper {
+    grid-area: price;
+  }
+
+  .volumeWrapper {
+    grid-area: volume;
+  }
+
+  .tvlWrapper {
+    grid-area: tvl;
+  }
+
+  .accountsWrapper {
+    grid-area: accounts;
+  }
+
+  .token {
+    grid-template-columns: 40px repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      'id logo volume price'
+      'id name tvl accounts';
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .tokenWrapper {
+    transform: scale(0.8);
+  }
 }

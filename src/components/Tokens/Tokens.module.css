@@ -22,3 +22,10 @@
   flex-direction: column;
   background-color: var(--grey);
 }
+
+@media screen and (max-width: 900px) {
+  .titleSection {
+    width: 100%;
+    transform: scale(0.8);
+  }
+}
