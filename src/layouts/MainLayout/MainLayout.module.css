@@ -1,0 +1,5 @@
+.mainLayout {
+  width: 100%;
+  min-height: 100vh;
+  border-top-left-radius: 32px;
+}

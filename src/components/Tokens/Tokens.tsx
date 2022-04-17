@@ -2,25 +2,26 @@ import { FC, useState } from 'react'
 import { tokens, categories } from '../../tokens'
 import { Token } from './Token'
 import { Filtration } from './Filtration'
+import { MainLayout } from '../../layouts/MainLayout'
 import classes from './Tokens.module.css'
 
 export const Tokens: FC = () => {
-  const [category, setCategory] = useState(categories[0].title)
-  const filteredTokens = tokens.filter((item) =>
-    category === categories[0].title
-      ? item
-      : item.categories.includes(category.toLowerCase()),
+  const [category, setCategory] = useState(categories[0].id)
+  const filteredTokens = tokens.filter((token) =>
+    category === categories[0].id ? token : token.categories.includes(category),
   )
 
   return (
-    <div className={classes.tokens}>
+    <MainLayout className={classes.tokens}>
       <section className={classes.titleSection}>
-        <h1 className={classes.title}>Токены Everscale</h1>
-        <Filtration category={category} setCategory={setCategory} />
+        <div className={classes.titleWrapper}>
+          <h1 className={classes.title}>Токены Everscale</h1>
+          <Filtration category={category} setCategory={setCategory} />
+        </div>
       </section>
-      {filteredTokens.map((item) => (
-        <Token key={item.id} item={item} />
+      {filteredTokens.map((token) => (
+        <Token key={token.id} token={token} />
       ))}
-    </div>
+    </MainLayout>
   )
 }

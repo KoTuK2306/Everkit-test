@@ -8,44 +8,19 @@ interface FiltrationProps {
 }
 
 export const Filtration: FC<FiltrationProps> = ({ category, setCategory }) => {
-  const makeClass = (currentFilt: string) => {
-    return category === currentFilt
-      ? `${classes.filtButton} ${classes.active}`
-      : classes.filtButton
+  const makeClass = (currentFiltering: string) => {
+    return `${classes.filteringButton} ${
+      category === currentFiltering ? classes.active : ''
+    }`
   }
 
   return (
-    <div className={classes.filtrationBlock}>
-      <button
-        onClick={() => setCategory(categories[0].title)}
-        className={makeClass(categories[0].title)}
-      >
-        {categories[0].title}
-      </button>
-      <button
-        onClick={() => setCategory(categories[1].title)}
-        className={makeClass(categories[1].title)}
-      >
-        {categories[1].title}
-      </button>
-      <button
-        onClick={() => setCategory(categories[2].title)}
-        className={makeClass(categories[2].title)}
-      >
-        {categories[2].title}
-      </button>
-      <button
-        onClick={() => setCategory(categories[3].title)}
-        className={makeClass(categories[3].title)}
-      >
-        {categories[3].title}
-      </button>
-      <button
-        onClick={() => setCategory(categories[4].title)}
-        className={makeClass(categories[4].title)}
-      >
-        {categories[4].title}
-      </button>
+    <div className={classes.filtration}>
+      {categories.map(({ id, title }) => (
+        <button key={id} onClick={() => setCategory(id)} className={makeClass(id)}>
+          {title}
+        </button>
+      ))}
     </div>
   )
 }

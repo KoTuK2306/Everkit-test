@@ -1,0 +1,1 @@
+export { SearchPlug } from './SearchPlug'

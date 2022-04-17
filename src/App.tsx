@@ -1,20 +1,23 @@
 import { FC } from 'react'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { Menu } from './components/Menu'
 import { Tokens } from './components/Tokens'
-import { Search } from './components/Search'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { RouterPaths } from './enums/RouterPaths'
+import { SearchPlug } from './components/SearchPlug'
+import { TokenPlug } from './components/TokenPlug'
 import classes from './App.module.css'
 
 export const App: FC = () => {
   return (
     <section className={classes.app}>
-      <HashRouter>
+      <BrowserRouter>
         <Menu />
         <Routes>
-          <Route index element={<Tokens />} />
-          <Route path="/search" element={<Search />} />
+          <Route path={RouterPaths.TOKENS} element={<Tokens />} />
+          <Route path={RouterPaths.SEARCH} element={<SearchPlug />} />
+          <Route path="/token/:tokenId" element={<TokenPlug />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </section>
   )
 }

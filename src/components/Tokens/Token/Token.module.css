@@ -1,32 +1,37 @@
-.tokenBlock {
-  display: flex;
-  flex-direction: column;
-  padding: 0 24px;
-  width: var(--tokensContentWidth);
-  min-height: 92px;
-  margin-bottom: 8px;
-  border-radius: 8px;
-  background-color: var(--white);
-  font-family: Montserrat;
-  transition: 0.2s all;
-  cursor: pointer;
-  border: 2px solid var(--transparent);
+:root {
+  --tokenHeigth: 92px;
 }
 
-.tokenBlock:hover {
+.tokenWrapper {
+  align-self: stretch;
+  margin: 0 42px 8px 42px;
+  padding: 0 24px;
+  min-height: var(--tokenHeigth);
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  background-color: var(--white);
+  transition: 0.2s all;
+  cursor: pointer;
+}
+
+.navlinkWrapper {
+  display: grid;
+  grid-template-columns: auto 64px;
+  align-items: center;
+}
+
+.tokenWrapper:hover {
   border: 2px solid var(--purple);
 }
 
 .token {
   display: grid;
   align-items: center;
-  grid-template-columns: 40px 48px repeat(5, 1fr);
-  grid-template-rows: 92px;
-  grid-auto-flow: column;
+  grid-template-columns: 40px 48px repeat(4, 2fr) 1fr;
+  grid-template-rows: var(--tokenHeigth);
 }
 
 .id {
-  font-weight: 500;
   font-size: 18px;
   color: var(--grey2);
 }
@@ -38,7 +43,7 @@
   height: 40px;
 }
 
-.nameBlock {
+.nameWrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -48,7 +53,6 @@
   margin: 0;
   padding: 0;
   font-size: 21px;
-  font-weight: 500;
   color: var(--black);
 }
 
@@ -56,46 +60,51 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
-  font-weight: 500;
   color: var(--purple);
 }
 
-.priceBlock {
-  margin: 0;
+.priceWrapper {
   padding: 0;
-  width: 224px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .price {
-  padding: 0;
-  margin: 0 0 2px 0;
+  margin: 0;
   font-size: 18px;
-  font-weight: 500;
   color: var(--purple);
 }
 
 .priceChanges {
   display: flex;
+  position: relative;
   align-items: center;
   flex-direction: row;
-  font-weight: 500;
   font-size: 14px;
   line-height: 14px;
   color: var(--grey2);
 }
 
-.priceChanges > p {
-  margin: 0 6px 0 6px;
+.priceChange {
+  margin: 0;
 }
 
-.priceChanges > p:first-child {
-  margin-left: 0;
+.priceChange:not(:first-child) {
+  margin-left: 16px;
 }
 
-.priceChanges > p:last-child {
-  margin-right: 0;
+.priceChange:not(:first-child)::after {
+  content: '';
+  display: flex;
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 50%;
+  margin-left: -10px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: var(--grey2);
 }
 
 .red {
@@ -106,7 +115,7 @@
   color: var(--green);
 }
 
-.volumeBlock {
+.volumeWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -114,34 +123,38 @@
 
 .volume {
   margin-right: 16px;
-  font-weight: 500;
   font-size: 18px;
   color: var(--black);
 }
 
 .percent {
-  font-weight: 500;
   font-size: 16px;
   color: var(--purple);
 }
 
-.accountsBlock {
+.accountsWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.usersIco {
+.usersIcon {
   width: 20px;
   height: 20px;
   margin-right: 8px;
   color: var(--purple);
 }
 
+.usersNum {
+  color: var(--black);
+}
+
 .descriptionButton {
+  transform: rotate(-180deg);
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: flex-end;
   width: 32px;
   height: 32px;
   color: var(--purple);
@@ -150,7 +163,7 @@
 }
 
 .openedDescriptionButton {
-  transform: rotate(-180deg);
+  transform: rotate(0deg);
 }
 
 .description {
